@@ -1,15 +1,9 @@
-import * as React from "react";
+import { AppPage } from '@/types/app';
 
-import AppLayout from "@/components/layouts/AppLayout";
-
-import { NextPageWithLayout } from "@/pages/page";
-
-const IndexPage: NextPageWithLayout = () => {
-  return <div>Test</div>;
+const IndexPage: AppPage = () => {
+	return <h1>test</h1>;
 };
+
+IndexPage.Layout = 'Default';
 
 export default IndexPage;
-
-IndexPage.getLayout = (page) => {
-  return <AppLayout pageTitle="Home">{page}</AppLayout>;
-};

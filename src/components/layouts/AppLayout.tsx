@@ -1,29 +1,23 @@
-import Head from "next/head";
-import * as React from "react";
+import { Container } from '@mui/material';
+import Head from 'next/head';
+import { PropsWithChildren } from 'react';
 
-import Box from "@mui/material/Box";
-import BottomNav from "./BottomNav";
+import BottomNav from './BottomNav';
 
-export interface AppLayoutProps {
-  children: React.ReactNode;
-  pageTitle?: string;
+export default function DefaultLayout(props: PropsWithChildren) {
+	const { children } = props;
+
+	return (
+		<>
+			<Head>
+				<title>Next Js With Capacitor And Material UI</title>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+				/>
+			</Head>
+			<Container maxWidth="md">{children}</Container>
+			<BottomNav />
+		</>
+	);
 }
-
-const AppLayout: React.FC<AppLayoutProps> = ({
-  children,
-  pageTitle = "~Page Title~",
-}) => {
-  // Put Header or Footer Here
-  return (
-    <Box>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <main>{children}</main>
-      <BottomNav />
-    </Box>
-  );
-};
-
-export default AppLayout;

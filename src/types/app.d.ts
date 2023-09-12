@@ -1,3 +1,4 @@
+import { EmotionCache } from '@emotion/cache';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 
@@ -10,6 +11,7 @@ export type AppPage<P = object, IP = P> = NextPage<P, IP> & {
 export type AppPropsExtended<P = {}> = {
 	err?: NextPageContext['err'];
 	Component: AppPage;
+	emotionCache?: EmotionCache;
 } & AppProps<P>;
 
 export type PageProps = {
